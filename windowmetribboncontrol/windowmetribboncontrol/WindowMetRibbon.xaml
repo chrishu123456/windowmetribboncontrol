@@ -14,6 +14,13 @@
     </Window.CommandBindings>
 
     <DockPanel LastChildFill="True">
+        <Ribbon DockPanel.Dock="Top" >
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu SmallImageSource="Images\bestand64.png" KeyTip="A">
+                    
+                </RibbonApplicationMenu>
+            </Ribbon.ApplicationMenu>
+        </Ribbon>
 
         <TextBox  Name="TextBoxVoorbeeld" Text="Dit is voorbeeldtekst" 
            VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 

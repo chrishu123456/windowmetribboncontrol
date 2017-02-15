@@ -17,7 +17,22 @@
         <Ribbon DockPanel.Dock="Top" >
             <Ribbon.ApplicationMenu>
                 <RibbonApplicationMenu SmallImageSource="Images\bestand64.png" KeyTip="A">
-                    
+                    <RibbonApplicationMenuItem ImageSource="Images\New16.png" Header="New" Command="New"></RibbonApplicationMenuItem>
+                    <RibbonApplicationMenuItem ImageSource="Images\Open16.png" Header="Open" Command="Open"></RibbonApplicationMenuItem>
+                    <RibbonApplicationMenuItem ImageSource="Images\Save16.png" Header="Save" Command="Save"></RibbonApplicationMenuItem>
+                    <RibbonSeparator></RibbonSeparator>
+                    <RibbonApplicationSplitMenuItem ImageSource="Images\printer64.png" Header="Afdrukmogelijkheden">
+                        <RibbonApplicationMenuItem ImageSource="Images\printer64.png" Header="Afdrukken" Command="Print"></RibbonApplicationMenuItem>
+                        <RibbonApplicationMenuItem ImageSource="Images\preview64.png" Header="Afdrukvoorbeeld" Command="PrintPreview"></RibbonApplicationMenuItem>
+                    </RibbonApplicationSplitMenuItem>
+                    <RibbonApplicationMenu.FooterPaneContent>
+                        <RibbonButton Command="Close" SmallImageSource="Images\close64.png" HorizontalAlignment="Right" Label="Afsluiten"></RibbonButton>
+                    </RibbonApplicationMenu.FooterPaneContent>
+                    <RibbonApplicationMenu.AuxiliaryPaneContent>
+                        <RibbonGallery Name="MRUGallery" CanUserFilter="False" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="MRUGallery_SelectionChanged">
+                            <RibbonGalleryCategory Name="MRUGalleryCat" Header="Recent Documents"></RibbonGalleryCategory>
+                        </RibbonGallery>
+                    </RibbonApplicationMenu.AuxiliaryPaneContent>
                 </RibbonApplicationMenu>
             </Ribbon.ApplicationMenu>
         </Ribbon>

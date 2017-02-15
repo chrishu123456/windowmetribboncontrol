@@ -109,6 +109,11 @@ namespace WindowMetRibbonControl
         {
             MessageBox.Show("Dit is helpscherm", "Help", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
         }
+
+        private void MRUGallery_SelectionChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            LeesBestand(MRUGallery.SelectedValue.ToString());
+        }
     }
 }
 

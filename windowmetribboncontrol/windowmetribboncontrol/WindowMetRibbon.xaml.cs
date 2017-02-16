@@ -114,6 +114,16 @@ namespace WindowMetRibbonControl
         {
             LeesBestand(MRUGallery.SelectedValue.ToString());
         }
+
+        private void Radio_Click(object sender, RoutedEventArgs e)
+        {
+            RibbonRadioButton keuze = (RibbonRadioButton)sender;
+            if (keuze.IsChecked == true)
+             {
+                SolidColorBrush kleur = (SolidColorBrush)new BrushConverter().ConvertFromString(keuze.Tag.ToString());
+                TextBoxVoorbeeld.Foreground = kleur;
+             }
+        }
     }
 }
 

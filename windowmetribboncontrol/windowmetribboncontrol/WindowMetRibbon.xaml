@@ -27,7 +27,7 @@
                     <RibbonSeparator></RibbonSeparator>
                     <RibbonApplicationSplitMenuItem ImageSource="Images\printer64.png" Header="Afdrukmogelijkheden">
                         <RibbonApplicationMenuItem ImageSource="Images\printer64.png" Header="Afdrukken" Command="Print"></RibbonApplicationMenuItem>
-                        <RibbonApplicationMenuItem ImageSource="Images\preview64.png" Header="Afdrukvoorbeeld" Command="PrintPreview"></RibbonApplicationMenuItem>
+                        <RibbonApplicationMenuItem ImageSource="Images\preview64.png" Header="Afdrukvoorbeeld" Command="PrintPreview" QuickAccessToolBarImageSource="Images\preview64.png"></RibbonApplicationMenuItem>
                     </RibbonApplicationSplitMenuItem>
                     <RibbonApplicationMenu.FooterPaneContent>
                         <RibbonButton Command="Close" SmallImageSource="Images\close64.png" HorizontalAlignment="Right" Label="Afsluiten"></RibbonButton>

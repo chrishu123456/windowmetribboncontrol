@@ -29,6 +29,33 @@ namespace WindowMetRibbonControl
         public WindowMetRibbon()
         {
             InitializeComponent();
+
+            if (windowmetribboncontrol.Properties.Settings.Default.qat != null)
+            {
+                System.Collections.Specialized.StringCollection qatlijst = windowmetribboncontrol.Properties.Settings.Default.qat;
+                int lijnnr = 0;
+                while (lijnnr < qatlijst.Count)
+                {
+                    String commando = qatlijst[lijnnr];
+                    string png = qatlijst[lijnnr + 1];
+                    RibbonButton nieuweKnop = new RibbonButton();
+                    BitmapImage icon = new BitmapImage();
+                    icon.BeginInit();
+                    icon.UriSource = new Uri(png);
+                    icon.EndInit();
+                    nieuweKnop.SmallImageSource = icon;
+
+                    CommandBindingCollection ccol = this.CommandBindings;
+                    foreach (CommandBinding cb in ccol)
+                    {
+                        RoutedUICommand rcb = (RoutedUICommand)cb.Command;
+                        if (rcb.Text == commando)
+                            nieuweKnop.Command = rcb;
+                    }
+                    Qat.Items.Add(nieuweKnop);
+                    lijnnr += 2;
+                }
+            }
         }
 
 
@@ -142,6 +169,12 @@ namespace WindowMetRibbonControl
                     qatlijst.Add(knop.SmallImageSource.ToString());
                 }
             }
+
+            if (qatlijst.Count > 0)
+            {
+                windowmetribboncontrol.Properties.Settings.Default.qat = qatlijst;
+            }
+            windowmetribboncontrol.Properties.Settings.Default.Save();
         }
     }
     public class BooleanToFontWeight : IValueConverter

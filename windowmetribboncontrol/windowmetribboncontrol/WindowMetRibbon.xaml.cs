@@ -124,6 +124,59 @@ namespace WindowMetRibbonControl
                 TextBoxVoorbeeld.Foreground = kleur;
              }
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            System.Collections.Specialized.StringCollection qatlijst = new System.Collections.Specialized.StringCollection();
+            if (windowmetribboncontrol.Properties.Settings.Default.qat != null)
+            {
+                windowmetribboncontrol.Properties.Settings.Default.qat.Clear();
+            }
+            foreach (Object li in Qat.Items)
+            {
+                if (li is RibbonButton)
+                {
+                    RibbonButton knop = (RibbonButton)li;
+                    RoutedUICommand commando = (RoutedUICommand)knop.Command;
+                    qatlijst.Add(commando.Text);
+                    qatlijst.Add(knop.SmallImageSource.ToString());
+                }
+            }
+        }
+    }
+    public class BooleanToFontWeight : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if ((Boolean)value)
+                return "Bold";
+            else
+                return "Normal";
+            throw new NotImplementedException();
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class BooleanToFontStyle : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if ((Boolean)value)
+                return "Italic";
+            else
+                return "Normal";
+
+            throw new NotImplementedException();
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 
